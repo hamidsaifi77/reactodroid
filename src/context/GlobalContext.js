@@ -8,7 +8,9 @@ export const GlobalProvider = (props) => {
         snack: false,
         snack_msg: "",
         campaign_done: false,
-        dial_dialog: false
+        dial_dialog: false,
+        dial_number: false,
+        dialo_home_menu: false
     })
 
     return (

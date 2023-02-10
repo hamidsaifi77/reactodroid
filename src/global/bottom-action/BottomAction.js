@@ -1,14 +1,18 @@
 import { ChevronLeft, FiberManualRecord, Square } from '@mui/icons-material'
-import { IconButton } from '@mui/material'
+import { Grid, IconButton } from '@mui/material'
 import { Box, Stack } from '@mui/system'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 const BottomAction = () => {
+    const history = useHistory()
     return (
         <Box bgcolor={'rgba(0, 0, 0, 0.2)'} >
             <Box mr={'10%'} ml='10%'>
                 <Stack alignItems={'center'} direction={'row'} justifyContent='space-between'>
-                    <IconButton size='small' >
+                    <IconButton onClick={() => {
+                        history.goBack()
+                    }} size='small' >
                         <ChevronLeft sx={{ height: 30, width: 30, color: "white" }} />
                     </IconButton>
                     <IconButton size='small' >

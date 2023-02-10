@@ -6,6 +6,7 @@ import React from 'react'
 import { GlobalContext } from '../../../context/GlobalContext';
 import SearchContactBar from '../../../global/contact-search/SearchContactBar';
 import TopAction from '../../../global/top-action/TopAction';
+import DialScreen from './DialScreen';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -80,10 +81,13 @@ const DialNumber = () => {
             TransitionComponent={Transition} fullScreen>
             <TopAction />
 
+
             <Button
                 onClick={() => GLOBAL_CONTEXT.setData({ ...GLOBAL_CONTEXT.data, dial_dialog: false })} color='inherit' fullWidth size='small'>
                 <ArrowDownwardOutlined />
             </Button>
+
+            <DialScreen />
 
             <Container sx={{ mt: 2 }} maxWidth='lg'>
                 <SearchContactBar />
@@ -127,7 +131,7 @@ const DialNumber = () => {
 
             <Box sx={{ bottom: 15, position: "fixed", display: 'flex', width: '100%', justifyContent: 'flex-end' }}>
                 <Box p={0.5} borderRadius={"50%"} bgcolor='white' m={2} boxShadow={10} >
-                    <IconButton>
+                    <IconButton onClick={() => GLOBAL_CONTEXT.setData({ ...GLOBAL_CONTEXT.data, dial_number: true })} >
                         <Dialpad sx={{ color: 'black' }} />
                     </IconButton>
                 </Box>
